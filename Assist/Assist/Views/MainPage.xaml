@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Assist.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
+    xmlns:view="clr-namespace:Assist.Views"
+    mc:Ignorable="d">
+
+    <Grid ColumnSpacing="0" RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition x:Name="BottomBarRowDefinition" Height="{StaticResource BottomBarHeight}" />
+        </Grid.RowDefinitions>
+
+        <tabs:ViewSwitcher
+            x:Name="Switcher"
+            Grid.Row="0"
+            Animate="False">
+            <view:ProfileView />
+            <view:ProfileView />
+            <view:ProfileView />
+
+            <!--<view:TransactionsView/>-->
+            <!--<customViews:LazyView x:TypeArguments="view:ProfileView" />
+            <customViews:LazyView x:TypeArguments="view:TrackingView" />
+            <customViews:LazyView x:TypeArguments="view:FriendsView" />
+            <customViews:LazyView x:TypeArguments="view:TransactionsView" />-->
+        </tabs:ViewSwitcher>
+
+        <tabs:TabHostView
+            x:Name="TabHost"
+            Grid.Row="1"
+            BackgroundColor="White"
+            SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
+            ShadowType="AcrylicTop"
+            TabType="Fixed">
+            <tabs:TabHostView.Tabs>
+                <tabs:BottomTabItem Label="Profile" Style="{StaticResource BottomTabStyle}">
+                    <tabs:BottomTabItem.IconImageSource>
+                        <FontImageSource FontFamily="FA-S" Glyph="&#xf2bd;" />
+                    </tabs:BottomTabItem.IconImageSource>
+                </tabs:BottomTabItem>
+                <tabs:BottomTabItem Label="Tracking" Style="{StaticResource BottomTabStyle}">
+                    <tabs:BottomTabItem.IconImageSource>
+                        <FontImageSource FontFamily="FA-S" Glyph="&#xf080;" />
+                    </tabs:BottomTabItem.IconImageSource>
+                </tabs:BottomTabItem>
+
+                <!--  Circle button
+                <tabs:TabButton ButtonBackgroundColor="Accent"
+                                ButtonCircleSize="60"
+                                ButtonPadding="15"
+                                Scale="1.3"
+                                TranslationY="-10" />-->
+
+                <tabs:BottomTabItem Label="Friends" Style="{StaticResource BottomTabStyle}">
+                    <tabs:BottomTabItem.IconImageSource>
+                        <FontImageSource FontFamily="FA-S" Glyph="&#xf0c0;" />
+                    </tabs:BottomTabItem.IconImageSource>
+                </tabs:BottomTabItem>
+                <!--<tabs:BottomTabItem Style="{StaticResource BottomTabStyle}"
+                                    Label="Transactions" >
+                    <tabs:BottomTabItem.IconImageSource>
+                        <FontImageSource FontFamily="FA-S"
+                                         Glyph="&#xf073;"/>
+                    </tabs:BottomTabItem.IconImageSource>
+                </tabs:BottomTabItem>-->
+            </tabs:TabHostView.Tabs>
+        </tabs:TabHostView>
+    </Grid>
+
+</ContentPage>

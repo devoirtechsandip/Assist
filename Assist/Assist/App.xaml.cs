@@ -11,7 +11,7 @@ namespace Assist
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new SocialLoginPage();
         }
 
         protected override void OnStart()

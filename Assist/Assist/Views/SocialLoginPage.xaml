@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Assist.Views.SocialLoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="clr-namespace:Assist.ViewModels"
+    mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <viewmodels:SocialLoginViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="12,0,12,12" Spacing="6">
+
+            <Button
+                BackgroundColor="#00A4EF"
+                Command="{Binding MicrosoftCommand}"
+                Text="Microsoft"
+                TextColor="White" />
+            <Button
+                BackgroundColor="#d34836"
+                Command="{Binding GoogleCommand}"
+                Text="Google"
+                TextColor="White" />
+            <Button
+                BackgroundColor="#3b5998"
+                Command="{Binding FacebookCommand}"
+                Text="Facebook"
+                TextColor="White" />
+            <Button
+                BackgroundColor="Black"
+                Command="{Binding AppleCommand}"
+                Text="Apple"
+                TextColor="White" />
+
+            <Label
+                Margin="12,12,12,0"
+                FontAttributes="Bold"
+                Text="Auth Token:" />
+            <Label
+                FontAttributes="Italic"
+                Text="{Binding AuthToken}"
+                TextColor="Red" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

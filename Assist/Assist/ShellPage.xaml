@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell
+    x:Class="Assist.ShellPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="clr-namespace:Assist.Views"
+    mc:Ignorable="d">
+
+    <Shell.Resources>
+
+        <!--<Color x:Key="NavigationPrimary">#6441A4</Color>
+        <Style x:Key="BaseStyle" TargetType="Element">
+            <Setter Property="Shell.BackgroundColor" Value="{StaticResource NavigationPrimary}" />
+            <Setter Property="Shell.ForegroundColor" Value="White" />
+            <Setter Property="Shell.TitleColor" Value="White" />
+            <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+            <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+            <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
+            <Setter Property="Shell.TabBarForegroundColor" Value="White" />
+            <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF" />
+            <Setter Property="Shell.TabBarTitleColor" Value="White" />
+        </Style>
+        <Style BasedOn="{StaticResource BaseStyle}" TargetType="TabBar" />
+
+        <Style x:Key="ProfileTab" TargetType="Tab">
+            <Style.Triggers>
+                <Trigger TargetType="Tab" Property="IsChecked" Value="False">
+                    <Setter Property="Icon">
+                        <Setter.Value>
+                            <FontImageSource FontFamily="FA-R" Glyph="{StaticResource IconProfileNormal}" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger TargetType="Tab" Property="IsChecked" Value="True">
+                    <Setter Property="Icon">
+                        <Setter.Value>
+                            <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconProfileNormal}" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="AboutTab" TargetType="Tab">
+            <Style.Triggers>
+                <Trigger TargetType="Tab" Property="IsChecked" Value="False">
+                    <Setter Property="Icon">
+                        <Setter.Value>
+                            <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconAboutNormal}" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+                <Trigger TargetType="Tab" Property="IsChecked" Value="True">
+                    <Setter Property="Icon">
+                        <Setter.Value>
+                            <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconAboutSelected}" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>-->
+    </Shell.Resources>
+
+
+    <ShellItem Route="mainpage">
+        <ShellContent ContentTemplate="{DataTemplate view:MainPage}" />
+    </ShellItem>
+
+
+
+
+    <TabBar x:Name="TabBar" Route="home">
+        <Tab Title="Profile" Route="profile">
+
+            <!--  Style="{StaticResource ProfileTab}"  -->
+            <Tab.Icon>
+                <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconProfileNormal}" />
+            </Tab.Icon>
+            <!--  To lazy load the content page  -->
+            <ShellContent ContentTemplate="{DataTemplate view:ProfilePage}" />
+
+        </Tab>
+
+
+
+        <Tab Title="About" Route="about">
+            <!--  Style="{StaticResource AboutTab}"  -->
+            <Tab.Icon>
+                <FontImageSource FontFamily="FA-S" Glyph="{StaticResource IconAboutNormal}" />
+            </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate view:AboutPage}" />
+
+        </Tab>
+    </TabBar>
+
+    <ShellItem Route="login">
+        <ShellContent ContentTemplate="{DataTemplate view:Login}" />
+    </ShellItem>
+
+    <ShellItem Route="signup">
+        <ShellContent ContentTemplate="{DataTemplate view:NewAccountPage}" />
+    </ShellItem>
+</Shell>

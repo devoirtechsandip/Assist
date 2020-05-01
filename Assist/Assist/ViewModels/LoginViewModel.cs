@@ -1,4 +1,5 @@
 ﻿
+using Assist.Services;
 using Assist.Views;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
@@ -8,20 +9,18 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Auth;
-using Xamarin.Auth.Presenters;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Assist.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginViewModel : ViewModelBase
     {
-        private string username;
-        public string UserName
+        private string email;
+        public string Email
         {
-            get { return username; }
-            set { SetProperty(ref username, value); }
+            get { return email; }
+            set { SetProperty(ref email, value); }
         }
 
         private string password;
@@ -31,30 +30,39 @@ namespace Assist.ViewModels
             set { SetProperty(ref password, value); }
         }
 
-        public Xamarin.Forms.Command LoginCommand { get; set; }
+        public AsyncCommand LoginCommand { get; set; }
+        public AsyncCommand SignUpCommand { get; set; }
+
+        IFirebaseAuth auth;
 
         public LoginViewModel()
         {
-            LoginCommand = new Xamarin.Forms.Command(LoginFunc);
+            auth = DependencyService.Get<IFirebaseAuth>();
+            LoginCommand = new AsyncCommand(LoginFunc);
+            SignUpCommand = new AsyncCommand(SignUpFunc);
         }
 
-
-        //Google Authentication code
-
-        OAuth2Authenticator oAuth2Authenticator;
-       
-
-        public static EventHandler OnPresenter;
-
-
-        //Account account;
-
-        //AccountStore store = null;
-
-        //const string ServiceId = "Assist";
-        void LoginFunc()
+        async Task SignUpFunc()
         {
+            await Shell.Current.GoToAsync("///signup");
+        }
+
+        async Task LoginFunc()
+        {
+
+            string Token = await auth.LoginWithEmailPassword(Email, Password);
+            if (Token != "")
+            {
+                await SecureStorage.SetAsync("UserEmail", Email);
+                await Shell.Current.GoToAsync("///home");
+            }
+            else
+            {
+                await DisplayAlert("Login Failed", "Something went wrong. Try again!");
+            }
+
             
+
         }
 
        

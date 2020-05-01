@@ -15,7 +15,7 @@
 
     <ContentView.Content>
         <StackLayout>
-            <Label Text="Hello Xamarin.Forms!" />
+            <Button Command="{Binding SignOutCommand}" Text="Sign Out" />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

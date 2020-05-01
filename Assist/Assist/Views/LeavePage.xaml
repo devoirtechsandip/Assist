@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Assist.Views.LeavePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="clr-namespace:Assist.ViewModels"
+    mc:Ignorable="d">
+    <ContentPage.BindingContext>
+        <viewModel:LeaveViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Picker SelectedItem="{Binding LeaveType}">
+                <Picker.Items>
+                    <x:String>PL</x:String>
+                    <x:String>CL</x:String>
+                    <x:String>SL</x:String>
+                </Picker.Items>
+            </Picker>
+            <DatePicker
+                Date="{Binding StartDate}"
+                MaximumDate="{Binding MaxDate}"
+                MinimumDate="{Binding MinDate}" />
+            <DatePicker
+                Date="{Binding EndDate}"
+                MaximumDate="{Binding MaxDate}"
+                MinimumDate="{Binding MinDate}" />
+
+            <Picker SelectedItem="{Binding LeaveMode}">
+                <Picker.Items>
+                    <x:String>Full Time</x:String>
+                    <x:String>Half Time</x:String>
+                </Picker.Items>
+            </Picker>
+            <Editor MaxLength="5" Placeholder="Reason" />
+            <Picker SelectedItem="{Binding Approver}">
+                <Picker.Items>
+                    <x:String>Sandip Kumbhar</x:String>
+                    <x:String>Deepak Sahani</x:String>
+                </Picker.Items>
+            </Picker>
+            <Button Command="{Binding Submit}" Text="Submit Request" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -10,6 +10,30 @@
     <Application.Resources>
         <ResourceDictionary>
 
+            <x:String x:Key="IconProfileSelected">&#xf2bd;</x:String>
+            <x:String x:Key="IconProfileNormal">&#xf007;</x:String>
+            <x:String x:Key="IconAboutSelected">&#xf05a;</x:String>
+            <x:String x:Key="IconAboutNormal">&#xf129;</x:String>
+
+            <x:String x:Key="IconTracking">&#xf1fe;</x:String>
+            <x:String x:Key="IconFriends">&#xf0c0;</x:String>
+
+
+
+            <x:String x:Key="IconFavorite">&#xf005;</x:String>
+            <x:String x:Key="IconTrash">&#xf2ed;</x:String>
+            <x:String x:Key="IconSend">&#xf1d8;</x:String>
+            <x:String x:Key="IconInbox">&#xf01c;</x:String>
+            <x:String x:Key="IconBlog">&#xf0ac;</x:String>
+            <x:String x:Key="IconGitHub">&#xf09b;</x:String>
+            <x:String x:Key="IconTwitter">&#xf099;</x:String>
+            <x:String x:Key="IconSave">&#xf0c7;</x:String>
+            <x:String x:Key="IconRefresh">&#xf021;</x:String>
+            <x:String x:Key="IconThumbsUp">&#xf164;</x:String>
+            <x:String x:Key="IconWarning">&#xf071;</x:String>
+            <x:String x:Key="IconFriendAdd">&#xf234;</x:String>
+
+
             <x:Int32 x:Key="BottomBarHeight">66</x:Int32>
 
             <Color x:Key="AccentColor">#00E000</Color>

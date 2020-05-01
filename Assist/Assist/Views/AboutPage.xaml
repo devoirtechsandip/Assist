@@ -1,15 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Assist.Views.MainPage"
+    x:Class="Assist.Views.AboutPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
-    xmlns:view="clr-namespace:Assist.Views"
     xmlns:viewModel="clr-namespace:Assist.ViewModels"
     mc:Ignorable="d">
     <ContentPage.BindingContext>
-        <viewModel:MainViewModel />
+        <viewModel:AboutViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                Text="About Page!"
+                VerticalOptions="CenterAndExpand" >
+                
+            </Label>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
